@@ -17,7 +17,7 @@ public class LabDataController {
         processor.exportExperiment();
         Result res = processor.importExperiment("experimentEXP123.xml");
         processor.enrichObject(res);
-        return "Processed experiment " + res.getExperimentId();
+        return "Processed experiment " + res.getExperimentId() + " because you asked for it at " + java.time.LocalDateTime.now();
     }
 
     @GetMapping("/status")

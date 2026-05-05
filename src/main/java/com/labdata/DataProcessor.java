@@ -1,4 +1,5 @@
 package com.labdata;
+
 import java.util.List;
 import java.io.File;
 import jakarta.xml.bind.JAXBContext;
@@ -19,7 +20,7 @@ public class DataProcessor {
     }
         
     public void exportExperiment() {
-        System.out.println("Hello World");
+        System.out.println("Button pushed; exporting experiment...");
         // Create an Experiment object
         Experiment exp = new Experiment();
         exp.setExperimentID("EXP123");
