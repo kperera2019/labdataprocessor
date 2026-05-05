@@ -1,0 +1,12 @@
+target/
+*.log
+*.class
+
+# IDE stuff
+.vscode/
+.idea/
+*.iml
+
+# OS junk
+.DS_Store
+Thumbs.db
