@@ -10,16 +10,22 @@ import org.springframework.stereotype.Service;
 
 
 
+
+
 @Service
 public class DataProcessor {
     public static void main(String[] args) {
-        DataProcessor processor = new DataProcessor();
-        processor.exportExperiment();
-        Result res =processor.importExperiment("experimentEXP123.xml");
-        processor.enrichObject(res);
+       System.out.println("Trying some stuff..");
+    }
+
+    public Experiment[] pipeline() {
+        Experiment firstexp = exportExperiment();
+        Result res = importExperiment("experimentEXP123.xml");
+        Experiment enrichedexp = enrichObject(res);
+        return new Experiment[]{firstexp,enrichedexp};
     }
         
-    public void exportExperiment() {
+    public Experiment exportExperiment() {
         System.out.println("Button pushed; exporting experiment...");
         // Create an Experiment object
         Experiment exp = new Experiment();
@@ -35,9 +41,11 @@ public class DataProcessor {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(exp, new File(xmlFilePath));
+            return exp;
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
@@ -66,7 +74,7 @@ public class DataProcessor {
         return null;
     }
 
-    public void enrichObject(Result res) {
+    public Experiment enrichObject(Result res) {
         res.setProcessedAt(java.time.Instant.now().toString());
         res.setNotes("Experiment processed successfully.");
         // Add dummy samples and measurements for demonstration
@@ -118,9 +126,11 @@ public class DataProcessor {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(expset, new File(newxmlFilePath));
+            return expset;
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+        return null;
 
     }
         

@@ -7,6 +7,7 @@ function App() {
     const res = await fetch("http://localhost:8080/process")
     const text = await res.text()
     setResult(text)
+    console.log(text);
   }
 
   return (

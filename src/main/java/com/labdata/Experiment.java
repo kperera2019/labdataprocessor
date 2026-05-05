@@ -26,7 +26,6 @@ public class Experiment {
     @XmlAttribute
     public void setExperimentID(String experimentID) { //unique id -> attribute
         this.experimentID = experimentID;
-        System.out.println("Set experimentID to " + experimentID);
     }
 
     public String getTitle() {
