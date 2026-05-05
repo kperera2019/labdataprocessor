@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<experiment experimentID="EXP123">
+    <dateCreated>2024-06-01T10:00:00Z</dateCreated>
+    <researcher>Dr. Smith</researcher>
+    <status>raw</status>
+    <title>Test Experiment</title>
+</experiment>
